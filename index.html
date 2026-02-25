@@ -2,71 +2,79 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@500&display=swap"
-   rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta name="HandheldFriendly" content="true" />
+  
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@500&display=swap" rel="stylesheet">
   <link href="styles/all.css" rel="stylesheet">
   <link rel="stylesheet" href="styles/main.css">
   <title>$ Keneth's terminal.</title>
   <link rel="icon" type="image/png" sizes="50x50" href="resources\yoko.png">
-</head> 
+</head>
 <body>
-
-  <!-- <div class="main-title">
-    <h1>Keneth Rapalo Triminio</h1>
-  </div> -->
+  <div class="wrapper">
+    <div class="liquidGlass-wrapper dock">
+      <div class="liquidGlass-effect"></div>
+      <div class="liquidGlass-tint"></div>
+      <div class="liquidGlass-shine"></div>
+      <div class="liquidGlass-text">
+        <div class="dock">
+          <h1>Keneth Rapalo Triminio</h1>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <div class="container">
     <div class="menu">
       <div class="buttons-flex">
-      <div class="button red" title="Reload terminal" id="closeBtn"></div>
-      <div class="button green" title="Maximize window" id="fullscreenBtn"></div>
-    </div>
-
-    <div class="title">
-      <a href="https://gitlab.com/keneth.rapalo" target="_blank" title="Go to Gitlab"><h1><i class='fab fa-linux'></i> /home/keneth-rapalo</h1></a>
-    </div>
-
-    </div>
-    <div id="app">
-    </div>
-      <div class="bottom-bar">
-        <span class="bottom-bar-text">Keneth Rapalo | All Rights Reserved | Views: <span id="finicount_views">0</span>
-</span>
+        <div class="button red" title="Reload terminal" id="closeBtn"></div>
+        <div class="button green" title="Maximize window" id="fullscreenBtn"></div>
       </div>
+
+      <div class="title">
+        <a href="https://gitlab.com/keneth.rapalo" target="_blank" title="Go to Gitlab">
+          <h1><i class='fab fa-linux'></i> /home/keneth-rapalo</h1>
+        </a>
+      </div>
+    </div>
+    
+    <div id="app"></div>
+    
+    <div class="bottom-bar">
+      <span class="bottom-bar-text">Keneth Rapalo | All Rights Reserved | Views: <span id="finicount_views">0</span>
+      </span>
+    </div>
   </div>
 
- <div class="wrapper">
-        <div class="liquidGlass-wrapper dock">
-          <div class="liquidGlass-effect"></div>
-          <div class="liquidGlass-tint"></div>
-          <div class="liquidGlass-shine"></div>
-          <div class="liquidGlass-text">
-            <!-- <div class="dock">
-                <a href="https://drive.google.com/file/d/1X3novSuTGzvXrJzx02j3J9r9zcd2qq3e/view?usp=sharing" target="_blank">
-                 <img src="resources/cv_2.svg" alt="cv" title="View CV">
-                </a> -->
+  <div class="wrapper">
+    <div class="liquidGlass-wrapper dock">
+      <div class="liquidGlass-effect"></div>
+      <div class="liquidGlass-tint"></div>
+      <div class="liquidGlass-shine"></div>
+      <div class="liquidGlass-text">
+        <div class="dock">
+          <a href="https://www.linkedin.com/in/keneth-rapalo/" target="_blank">
+            <img src="resources/linkedin.svg" alt="linkedin" title="Go to Linkedin profile">
+          </a>
 
-                <a href="https://www.linkedin.com/in/keneth-rapalo/" target="_blank">
-                  <img src="resources/linkedin.svg" alt="linkedin" title="Go to Linkedin profile">
-                </a>
+          <a href="mailto:keneth.triminio@proton.me">
+            <img src="resources/mail.svg" alt="mail" title="Contact me">
+          </a>
 
-                <a href="mailto: keneth.triminio@proton.me">
-                  <img src="resources/mail.svg" alt="mail" title="Contact me">
-                </a>
+          <a href="https://www.instagram.com/_keneth.r/" target="_blank">
+            <img src="resources/instagram.svg" alt="projects" title="Instagram">
+          </a>
 
-                <a href="https://www.instagram.com/_keneth.r/" target="_blank">
-                  <img src="resources/instagram.svg" alt="projects" title="Instagram">
-                </a>
-
-                <a href="#projects">
-                  <img src="resources/github.svg" alt="projects" title="Personal projects">
-                </a>
-              </div>
-            </div>
-          </div>
+          <a href="#projects">
+            <img src="resources/github.svg" alt="projects" title="Personal projects">
+          </a>
         </div>
-  <script src="scripts/main.js"></script>  
+      </div>
+    </div>
+  </div>
+  
+  <script src="scripts/main.js"></script>
   <script async src="//finicounter.eu.org/finicounter.js"></script>
 </body>
 </html>
