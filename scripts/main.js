@@ -28,9 +28,38 @@ document.addEventListener('DOMContentLoaded', function() {
       window.location.reload(true);
     });
   }
+
+document.addEventListener('touchmove', function(e) {
+  if (!e.target.closest('#app')) {
+    e.preventDefault();
+  }
+}, { passive: false });
+
+document.addEventListener('gesturestart', function(e) {
+  e.preventDefault();
+});
+
+document.addEventListener('gesturechange', function(e) {
+  e.preventDefault();
+});
+
+document.addEventListener('gestureend', function(e) {
+  e.preventDefault();
+});
+
+let lastTouchEnd = 0;
+document.addEventListener('touchend', function(e) {
+  const now = Date.now();
+  if (now - lastTouchEnd <= 300) {
+    e.preventDefault();
+  }
+  lastTouchEnd = now;
+}, false);
+
+const app = document.querySelector("#app");
   
   if (fullscreenBtn) {
-    fullscreenBtn.addEventListener("click", () => {
+    fullscreenBtn.addEventListener("click", () => {a
       const container = document.querySelector(".container");
       if (!document.fullscreenElement) {
         if (container.requestFullscreen) {
