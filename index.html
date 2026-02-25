@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<!--<head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@500&display=swap"
@@ -9,6 +9,35 @@
   <link rel="stylesheet" href="styles/main.css">
   <title>$ Keneth's terminal.</title>
   <link rel="icon" type="image/png" sizes="50x50" href="resources\yoko.png">
+</head> -->
+
+  <head>
+  <meta charset="UTF-8">
+  <!-- SOLO CAMBIA ESTA LÍNEA - Agrega maximum-scale y user-scalable -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@500&display=swap" rel="stylesheet">
+  <link href="styles/all.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles/main.css">
+  <title>$ Keneth's terminal.</title>
+  <link rel="icon" type="image/png" sizes="50x50" href="resources\yoko.png">
+  
+  <script>
+    (function() {
+      // Prevenir scroll del body en móviles
+      document.addEventListener('touchmove', function(e) {
+        // Permite scroll solo dentro del elemento #app
+        if (!e.target.closest('#app')) {
+          e.preventDefault();
+        }
+      }, { passive: false });
+      
+      // Prevenir gestos de zoom
+      document.addEventListener('gesturestart', function(e) {
+        e.preventDefault();
+      });
+    })();
+  </script>
 </head>
 <body>
 
