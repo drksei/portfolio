@@ -29,32 +29,30 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-document.addEventListener('touchmove', function(e) {
-  if (!e.target.closest('#app')) {
-    e.preventDefault();
+  if (fullscreenBtn) {
+    fullscreenBtn.addEventListener("click", toggleFullscreen);
   }
-}, { passive: false });
-
-document.addEventListener('gesturestart', function(e) {
-  e.preventDefault();
-});
-
-document.addEventListener('gesturechange', function(e) {
-  e.preventDefault();
-});
-
-document.addEventListener('gestureend', function(e) {
-  e.preventDefault();
-});
-
-let lastTouchEnd = 0;
-document.addEventListener('touchend', function(e) {
-  const now = Date.now();
-  if (now - lastTouchEnd <= 300) {
-    e.preventDefault();
+  
+  function toggleFullscreen() {
+    if (!document.fullscreenElement) {
+      if (document.documentElement.requestFullscreen) {
+        document.documentElement.requestFullscreen();
+      } else if (document.documentElement.webkitRequestFullscreen) { // Safari
+        document.documentElement.webkitRequestFullscreen();
+      } else if (document.documentElement.msRequestFullscreen) { // IE/Edge
+        document.documentElement.msRequestFullscreen();
+      }
+    } else {
+      // Salir del modo pantalla completa
+      if (document.exitFullscreen) {
+        document.exitFullscreen();
+      } else if (document.webkitExitFullscreen) { // Safari
+        document.webkitExitFullscreen();
+      } else if (document.msExitFullscreen) { // IE/Edge
+        document.msExitFullscreen();
+      }
+    }
   }
-  lastTouchEnd = now;
-}, false);
 
 const app = document.querySelector("#app");
   
