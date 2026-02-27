@@ -91,9 +91,9 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 async function open_terminal() {
-  createText("Hello there! and welcome to my portfolio ;)");
+  createText("[v.1.1b] Hello! and welcome to my portfolio ;)");
   await delay(700);
-  createText(">> OS: Connection established!");
+  createText(">> OS: Connection established port 90");
   await delay(900);
   new_line();
 }
@@ -119,7 +119,7 @@ function new_line() {
   const i = document.createElement("i");
   i.setAttribute("class", "fas fa-angle-right icone");
   const input = document.createElement("input");
-  input.setAttribute("placeholder", "Type a command... or write 'help' to get more info.");
+  input.setAttribute("placeholder", "Type a command... or 'help' to more info.");
 
   input.addEventListener("keydown", function (e) {
     e.stopPropagation();
@@ -157,24 +157,24 @@ async function getInputValue() {
   if (lowerValue === "ls") {
     trueValue(value);
     createCode("projects", "Show or try my projects.", "rgb(255, 107, 107)");
-    createCode("me", "Information about me :).", "rgb(78, 205, 196)");
+    createCode("me", "Information about me :)", "rgb(78, 205, 196)");
     createCode("social", "All my social networks.", "rgb(255, 230, 109)");
     createCode("clear", "Clean terminal screen.", "rgb(255, 159, 28)");
     createCode("reload", "Reload terminal interface,", "rgb(191, 140, 240)");
     createCode("exit", "Kill terminal.", "rgb(255, 107, 107)");
   }
-  
+
   else if (lowerValue === "help") {
     createText("Use <span style='color: blue;'>'ls'</span> to show command list.");
   }
   else if (lowerValue === "me") {
     createText("My name is Keneth.");
     createText('<img src="resources/profile.png" alt="Mi foto" style="max-width: 100px; border-radius: 10px;">');
-    createText("<em><u>Computer Systems and Network Administrator & IT Technician Supporter & Hardware.</u></em>");
-    createText("Passionate about technology with advanced knowledge in hardware architecture and software environments, I am a responsible person with the ability to learn and full availability.");
+    createText("<em><u>Computer systems & network technician & IT helpdesk.</u></em>");
+    createText("Passionate about technology with a strong background in hardware and software environments. Proactive individual, eager to learn and grow professionally every day.");
 
     let html = "<strong>Key Skills:</strong><ul>";
-    const skills = "- Operating systems.@- Computer and mobile device maintenance.@- Low-level tool management: ADB, Fastboot, and Xiaomi MiFlashTool.@- Fundamental knowledge of native Android development.@";
+    const skills = "- Computer, mobile repair and support technician.@- Network / systems maintenance, internet services & remote support operator.@- Low-level tools: ADB, Fastboot, and Xiaomi MiflashTool.@- Development environments, basic virtualization, and operating systems.@";
     const items = skills.split("@");
 
     items.forEach(item => {
@@ -186,6 +186,7 @@ async function getInputValue() {
     html += "</ul>";
     createText(html);
   }
+
   else if (lowerValue === "social") {
     createText("<a href='https://github.com/drksei' target='_blank'><i class='fab fa-github white'></i> github.com/drksei</a>");
     createText("<a href='https://gitlab.com/keneth.rapalo' target='_blank'><i class='fab fa-gitlab white'></i> gitlab.com/keneth.rapalo</a>");
@@ -196,15 +197,15 @@ async function getInputValue() {
     createText("<a href='https://gitlab.com/keneth.rapalo/plinga_studios' target='_blank'><i class='fab fa-gitlab white'></i> Five Nights in Darkness.</a> use <span style='color: yellow;'>'./fnid.exe'</span> to play.");
     createText("<a href='https://gitlab.com/keneth.rapalo/rock' target='_blank'><i class='fab fa-gitlab white'></i> Rock.</a>");
   }
-  else if (lowerValue === "clear") {
-    const elements = app.querySelectorAll("p, div.type, div.type2");
-
-    elements.forEach(e => e.remove());
-
+else if (lowerValue === "clear") {
+    while (app.firstChild) {
+        app.removeChild(app.firstChild);
+    }
+    
     createCode("Type 'ls'", "to show all command list, write <span style='color: yellow;'>'help'</span> to show more info.");
-
+    
     await delay(500);
-  }
+}
   else if (lowerValue === "reload") {
     window.location.reload(true);
   }
