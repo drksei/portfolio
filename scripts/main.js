@@ -197,15 +197,15 @@ async function getInputValue() {
     createText("<a href='https://gitlab.com/keneth.rapalo/plinga_studios' target='_blank'><i class='fab fa-gitlab white'></i> Five Nights in Darkness.</a> use <span style='color: yellow;'>'./fnid.exe'</span> to play.");
     createText("<a href='https://gitlab.com/keneth.rapalo/rock' target='_blank'><i class='fab fa-gitlab white'></i> Rock.</a>");
   }
-else if (lowerValue === "clear") {
+  else if (lowerValue === "clear") {
     while (app.firstChild) {
-        app.removeChild(app.firstChild);
+      app.removeChild(app.firstChild);
     }
-    
+
     createCode("Type 'ls'", "to show all command list, write <span style='color: yellow;'>'help'</span> to show more info.");
-    
+
     await delay(500);
-}
+  }
   else if (lowerValue === "reload") {
     window.location.reload(true);
   }
@@ -213,7 +213,7 @@ else if (lowerValue === "clear") {
     const iframeContainer = document.createElement("div");
     iframeContainer.innerHTML = `
       <iframe src="https://drksei.github.io/fnid/" 
-              style="width: 100%; height: 400px; border: 1px solid #ff0000; margin-top: 10px;" 
+              style="width: 100%; height: 450px; margin-top: 10px;" 
               frameborder="0">
       </iframe>
     `;
@@ -293,3 +293,93 @@ function createErrorText(text) {
   app.appendChild(p);
 }
 
+function updateClock() {
+  const clockElement = document.getElementById('clock');
+  if (clockElement) {
+    const now = new Date();
+    const hours = now.getHours().toString().padStart(2, '0');
+    const minutes = now.getMinutes().toString().padStart(2, '0');
+    clockElement.textContent = `${hours}:${minutes}`;
+  }
+}
+
+setInterval(updateClock, 1000);
+updateClock();
+
+document.addEventListener('DOMContentLoaded', function () {
+  const finderBtn = document.getElementById('finder-btn');
+  const menuContainer = document.querySelector('.menu-container');
+  const dropdownMenu = document.getElementById('finder-menu');
+
+  if (!finderBtn || !menuContainer || !dropdownMenu) return;
+
+  function showMenu() {
+    menuContainer.classList.add('show');
+  }
+
+  function hideMenu() {
+    menuContainer.classList.remove('show');
+  }
+
+  function toggleMenu() {
+    menuContainer.classList.toggle('show');
+  }
+
+  finderBtn.addEventListener('click', function (event) {
+    event.stopPropagation();
+    toggleMenu();
+  });
+
+  dropdownMenu.addEventListener('click', function (event) {
+    event.stopPropagation();
+  });
+
+  document.addEventListener('click', function (event) {
+    if (!menuContainer.contains(event.target)) {
+      hideMenu();
+    }
+  });
+
+
+  function actualizarFecha() {
+    const fecha = new Date();
+
+    const dias = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+    const diaSemana = dias[fecha.getDay()];
+    const diaMes = fecha.getDate();
+    const año = fecha.getFullYear();
+
+    const fechaFormateada = `${diaSemana}. ${diaMes} ${año}`;
+    const elementoFecha = document.getElementById('date');
+
+    if (elementoFecha.textContent !== fechaFormateada) {
+      elementoFecha.textContent = fechaFormateada;
+    }
+  }
+
+  actualizarFecha();
+
+  setInterval(actualizarFecha, 60000);
+
+
+  document.querySelectorAll('.dropdown-item').forEach(item => {
+    item.addEventListener('click', function () {
+      const command = this.getAttribute('data-command');
+
+      if (command) {
+        const input = document.querySelector('input');
+
+        if (input) {
+          input.value = command;
+
+          getInputValue();
+
+          removeInput();
+          setTimeout(() => {
+            new_line();
+          }, 150);
+        }
+      }
+    });
+  });
+});
