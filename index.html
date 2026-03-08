@@ -2,18 +2,52 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
   <meta name="HandheldFriendly" content="true" />
-  
+
   <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@500&display=swap" rel="stylesheet">
   <link href="styles/all.css" rel="stylesheet">
   <link rel="stylesheet" href="styles/main.css">
   <title>$ Keneth's terminal.</title>
   <link rel="icon" type="image/png" sizes="50x50" href="resources/terminal.png">
 </head>
-<body>
 
-  <div class="wrapper">
+<body>
+  <div class="macos-top-bar">
+    <div class="macos-left">
+      <div class="menu-container">
+        <div class="menu-item active" id="finder-btn">Finder</div>
+        <ul class="dropdown-menu" id="finder-menu">
+          <li class="dropdown-item" data-command="me">About me</li>
+          <li class="dropdown-item has-update">System Preferences... <span class="update-badge">1 update</span></li>
+          <li class="dropdown-item has-update" data-command="projects">Projects... <span class="update-badge">2
+              currenly</span></li>
+          <li class="dropdown-divider"></li>
+          <li class="dropdown-item">Force Quit Chrome</li>
+          <li class="dropdown-divider"></li>
+          <li class="dropdown-item" data-command="exit">Sleep</li>
+          <li class="dropdown-item" data-command="reload">Restart...</li>
+        </ul>
+      </div>
+
+      <!--<div class="menu-item">File</div>
+      <div class="menu-item">View</div>
+      <div class="menu-item" data-command="ls">Help</div> -->
+    </div>
+
+    <div class="macos-center">
+      <span id="clock">14:30</span>
+    </div>
+
+    <div class="macos-right">
+      <span id="date">...</span>  
+      <div class="status-item profile">
+      </div>
+    </div>
+  </div>
+
+  <!---- <div class="wrapper">
     <div class="liquidGlass-wrapper dock">
       <div class="liquidGlass-effect"></div>
       <div class="liquidGlass-tint"></div>
@@ -24,7 +58,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
 
   <div class="container">
     <div class="menu">
@@ -39,9 +73,9 @@
         </a>
       </div>
     </div>
-    
+
     <div id="app"></div>
-    
+
     <div class="bottom-bar">
       <span class="bottom-bar-text">Keneth Rapalo | All Rights Reserved | Views: <span id="finicount_views">0</span>
       </span>
@@ -74,8 +108,9 @@
       </div>
     </div>
   </div>
-  
+
   <script src="scripts/main.js"></script>
-  <script async src="//finicounter.eu.org/finicounter.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/interactjs@1.10.11/dist/interact.min.js"></script>
+  <script async src="//finicounter.eu.org/finicounter.js"></script> 
 </body>
 </html>
